@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Paciente>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Pacientes</h1>
+
+    <table class="table table-dark">
+        <tr>
+            <td>Id</td>
+            <td>Nome</td>
+            <td>CPF</td>
+            
+        </tr>
+
+        @foreach (Paciente paciente in Model)
+        {
+            <tr>
+                <td>@paciente.Id</td>
+                <td>@paciente.Nome</td>
+                <td>@paciente.Cpf</td>
+                <td><a asp-controller="Paciente" asp-action="Deletar" asp-route-id="@paciente.Id">Remover</a></td>
+            </tr>
+        }
+    </table>
+</div>
